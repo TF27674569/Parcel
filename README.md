@@ -18,7 +18,7 @@ JNIEXPORT jlong JNICALL Java_com_cabinet_parcel_pracel_Parcel_nativeCreate
 }
 
 ```
-&nbsp;　　1.成员变量mNativePtr，保存的是一个long值，这个值表示c++层Pacel对象的头指针
+&nbsp;　　1.成员变量mNativePtr，保存的是一个long值，这个值表示c++层Pacel对象的头指针  
 &nbsp;　　2.navite函数中创建了一个c++的Parcel对象，并将parcel对象的头指针返回给java层
 
 ## **二、java层读写操作**

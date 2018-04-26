@@ -111,3 +111,5 @@ int Parcel::readInt() {
 &nbsp;　　1.在序列化过程中，writeInt，writeString后读取操作必须是readInt，readString，否则会因为对象的长度不一样从而导致崩溃  
 &nbsp;　　2.在writeString是与其它对象不一样c/c++中，String对象为char*，不能知道其长度，所以在写的时候   
 &nbsp;　　需要先将string的长度写在前面，然后写string的内容，读取时先读到需要读取的长度后，再根据长度读相应的值  
+## **五、图解过程**
+![  ](https://github.com/TF27674569/Parcel/blob/master/c%2B%2Bparcel.bmp)  

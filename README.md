@@ -103,11 +103,11 @@ int Parcel::readInt() {
 }
 ```
 &nbsp;　　1.在初始化对象时，申请了一块char*内存用来存储数据类型  
-&nbsp;　　2.在写入时，将指针所在位置存上对应类型的值 
+&nbsp;　　2.在写入时，将指针所在位置存上对应类型的值   
 &nbsp;　　3.写入数据类型后需要将下次写入时的为之记录一下m_IMoveData表示下一个存储对象需要移动的位置  
 &nbsp;　　4.在读取是需要先将m_IMoveData位置置为0，根据read函数来判断移动的位置   
 
 ## **四、注意事项**
-&nbsp;　　1.在序列化过程中，writeInt，writeString后读取操作必须是readInt，readString，否则会因为对象的长度不一样从而导致崩溃
-&nbsp;　　2.在writeString是与其它对象不一样c/c++中，String对象为char*，不能知道其长度，所以在写的时候  
-&nbsp;　　需要先将string的长度写在前面，然后写string的内容，读取时先读到需要读取的长度后，再根据长度读相应的值
+&nbsp;　　1.在序列化过程中，writeInt，writeString后读取操作必须是readInt，readString，否则会因为对象的长度不一样从而导致崩溃  
+&nbsp;　　2.在writeString是与其它对象不一样c/c++中，String对象为char*，不能知道其长度，所以在写的时候   
+&nbsp;　　需要先将string的长度写在前面，然后写string的内容，读取时先读到需要读取的长度后，再根据长度读相应的值  

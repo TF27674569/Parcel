@@ -1,6 +1,6 @@
 # parcel 序列化过程
 
-##**一、java层Pacel对象构建**
+## **一、java层Pacel对象构建**
 ```java
     private long mNativePtr;
 
@@ -21,7 +21,7 @@ JNIEXPORT jlong JNICALL Java_com_cabinet_parcel_pracel_Parcel_nativeCreate
 &nbsp;　　1.成员变量mNativePtr，保存的是一个long值，这个值表示c++层Pacel对象的头指针
 &nbsp;　　2.navite函数中创建了一个c++的Parcel对象，并将parcel对象的头指针返回给java层
 
-##**二、java层读写操作**
+## **二、java层读写操作**
 ```java
     public final void writeInt(int val) {
         nativeWriteInt(mNativePtr, val);
@@ -51,7 +51,7 @@ JNIEXPORT jint JNICALL Java_com_cabinet_parcel_pracel_Parcel_nativeReadInt
 
 
 
-##**三、c++Pacel对象**
+## **三、c++Pacel对象**
 &nbsp;　　&nbsp;　　头文件
 ```java
 class Parcel {
@@ -107,7 +107,7 @@ int Parcel::readInt() {
 &nbsp;　　3.写入数据类型后需要将下次写入时的为之记录一下m_IMoveData表示下一个存储对象需要移动的位置  
 &nbsp;　　4.在读取是需要先将m_IMoveData位置置为0，根据read函数来判断移动的位置   
 
-##**四、注意事项**
+## **四、注意事项**
 &nbsp;　　1.在序列化过程中，writeInt，writeString后读取操作必须是readInt，readString，否则会因为对象的长度不一样从而导致崩溃
 &nbsp;　　2.在writeString是与其它对象不一样c/c++中，String对象为char*，不能知道其长度，所以在写的时候  
 &nbsp;　　需要先将string的长度写在前面，然后写string的内容，读取时先读到需要读取的长度后，再根据长度读相应的值
